@@ -1,0 +1,18 @@
+body{
+    background-color:#39395f;
+}
+td{
+    background-color: #a9c25d;
+    width:100px;
+    height: 100px;
+    
+
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+    position:relative;
+    top:150px;
+    border-spacing: 6px;
+    
+}
