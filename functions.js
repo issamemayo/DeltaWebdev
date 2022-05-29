@@ -8,8 +8,9 @@ table.addEventListener("click",function(e){
         
     }
     setTimeout(()=>{
+        if(e.target.nodeName =="TD"){
         e.target.style.background="#a9c25d";
-       
+        }
         
         },700)
 });
