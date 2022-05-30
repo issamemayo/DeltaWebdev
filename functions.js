@@ -12,23 +12,35 @@ function keylightup(e){
         },1000)
     }
     }
+    function lightup(token){
+        token.style.backgroundColor="brown";
+        setTimeout(()=>{
+            token.style.backgroundColor="orange";
+        },1000)
+    }
    
 
 
 
  const appendedlist = [];
+ 
 while(appendedlist.length<=15){
 var rand= Math.floor(Math.random()*16) +1;
 if (appendedlist.includes(rand)== false){
-        appendedlist[appendedlist.length]=rand;
-    }
-let newtile=document.getElementById(`${rand}`);
-setTimeout(()=>{newtile.style.backgroundColor="brown";},900
-);
-    newtile.style.backgroundColor="#a9c25d";
+ appendedlist[appendedlist.length]=rand;
+        console.log(rand);
+        let newtile=document.getElementById(`${rand}`);
+        setTimeout(()=>{
+    newtile.addEventListener("click",lightup(newtile));},1000*appendedlist.length);
+
+    
+
+
+    
 }
 
 
+}
 }
 )
 
