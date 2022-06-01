@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded',function(){
     //
-    function keylightup(e){     
-        if(e.target.nodeName=="TD" && e.target.style.backgroundColor=="orange"){
+    function clicklightup(e){     
+        if(e.target.nodeName=="TD" && e.target.style.backgroundColor=="orange"&& enableClick==true){
             e.target.style.backgroundColor= "brown";
             e.target.style.position.bottom="5px";
             e.target.style.position="relative";
+
             setTimeout(()=>{
                 e.target.style.backgroundColor="orange";
                 e.target.style.position.top="5px";
@@ -12,20 +13,26 @@ document.addEventListener('DOMContentLoaded',function(){
             },1000)
         }
         }
-        //
+//
         function lightup(token){
             token.style.backgroundColor="brown";
             setTimeout(()=>{
                 token.style.backgroundColor="orange";
             },1000)
         }
-        //
+//
+function checker(e){
+        if (e.target.nodeName=="TD"){
+            console.log( e.target.id);
+        }
     
-const table= document.querySelector("table");
-table.addEventListener("click",(e)=> keylightup(e));
-   
+}
 
+//
+   var enableClick=false;
 
+function gamebegin(){
+  
  const appendedlist = [];
  while(appendedlist.length<=15){
 var rand= Math.floor(Math.random()*16) +1;
@@ -34,16 +41,17 @@ if (appendedlist.includes(rand)== false){
         console.log(`${rand}`);}
           }
           var i=0;
-          const checklist=[]
           console.log(appendedlist);
+          const checklist=[]
             appendedlist.forEach((valoo) =>{
                   console.log(valoo);
                 var newtile=document.getElementById(`${valoo}`);
-                
+                console.log(newtile);
                 var delay = appendedlist.indexOf(valoo)
                 checklist.push(valoo);
                 console.log(checklist);
-
+                const table= document.querySelector("table");
+              table.addEventListener("click",(e)=> checker(e));
               
                 
             
@@ -51,12 +59,23 @@ if (appendedlist.includes(rand)== false){
     
         setTimeout(() => {
             lightup(newtile);
+            console.log(newtile.id)
+            const table= document.querySelector("table");
+            enableClick=true;
+            table.addEventListener("click",(e)=> clicklightup(e));
+           
             
             
-        },2000*(delay+1));
+            
+        },3000*(delay+1));
+        
+       
 
-
+        
     })
+}
+document.querySelector('#start').onclick=gamebegin;
+
 
           
 
