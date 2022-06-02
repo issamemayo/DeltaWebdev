@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 body{
-    background-color:#39395f;
+    background-image:url("charcoal.jpg");
+    background-size: cover;
 }
 td{
-    background-color: orange;
+    background-color:orangered;
     width:100px;
     height: 100px;
     
 
 }
+
 #start{
     border-radius:8px;
     height:30px;
